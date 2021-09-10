@@ -1,0 +1,20 @@
+<div class="py-12 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+  <product-card
+      *ngFor="let product of (vm$ | async)?.products"
+      [title]="product?.title"
+      [txt]="product?.txt"
+      [photoURL]="product?.photoURL"
+      [price]="product?.price"
+      (click)="goToDetail(product?.id)">
+  </product-card>
+
+  <modal [show]="!!(vm$ | async)?.loading || !!(vm$ | async)?.error">
+    <div class="loading" *ngIf="!!!(vm$ | async)?.error">
+      <img src="https://i.pinimg.com/originals/2b/02/15/2b02159fee58d573c079ad5212d56b63.gif" />
+      Loading...
+    </div>
+    <div class="loading" *ngIf="!!(vm$ | async)?.error">
+      Ha ocurrido un error. Vuelva a intentar la carga de la página.
+    </div>
+  </modal>
+</div>

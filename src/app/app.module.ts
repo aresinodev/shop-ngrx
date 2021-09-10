@@ -14,10 +14,16 @@ import { SharedModule } from './shared/shared.module';
 import { appReducers } from './stores/app.reducer';
 import { EffectsArray } from './stores/effects';
 import { getAppConfigProvider } from './util/app-config/app-config.token';
+import { ListContainerComponent } from './features/products-list/list-container/list-container.component';
+import { CartContainerComponent } from './features/cart/cart-container/cart-container.component';
+import { DetailContainerComponent } from './features/product-detail/detail-container/detail-container.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListContainerComponent,
+    CartContainerComponent,
+    DetailContainerComponent
   ],
   imports: [
     BrowserModule,
